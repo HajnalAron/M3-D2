@@ -1,5 +1,5 @@
 //Only working with a cors workaround
-
+albums = []
 function musicPage(){
 fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
  	"method": "GET",
@@ -52,4 +52,21 @@ function makeMusicCards(data){
         </div>
         `
 }
+}
+function countUniqueAlbums() {
+    let titles = document.querySelectorAll('h5')
+    for (title of titles){
+        albums.push(title.innerText)
+    }
+    countAlbums(albums)
+}
+function countAlbums(a){
+    let newArr = [];
+    for (let i = 0; i < a.length; i++) {
+        if (newArr.indexOf(a[i]) === -1) {
+            newArr.push(a[i]);
+        }
+    }
+    alert(newArr.length)
+  return newArr;
 }
