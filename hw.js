@@ -1,7 +1,7 @@
 //Only working with a cors workaround
 albums = []
 function musicPage(){
-fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
+fetch("https://strive-proxy.herokuapp.com/https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
  	"method": "GET",
  	"headers": {
  		"x-rapidapi-key": "6a6d399535msh94e6c026a6844cdp1dd69cjsn5ac8a74f3bf5",
@@ -21,7 +21,7 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
  });
 
 function getMusic(newData){
-    fetch(newData)
+    fetch(`https://strive-proxy.herokuapp.com/${newData}`)
     .then(response => {
         console.log(response)
         return response.json();
